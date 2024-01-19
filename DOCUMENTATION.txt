@@ -1,0 +1,40 @@
+//Documentation
+The file to enter test values is PhysicsSim.txt
+
+The input values are given in the following order
+Number of objects
+mass
+bounceReduction (restitution)
+drag
+angular drag
+minimum velocity
+max velocity
+min angular velocity (In Radians)
+max angular velocity (In Radians)
+
+Once you run the code, a simulation will start within a 30x30 bounding box. Objects will spawn at random locations within the bounding box and will have a random velocity and angular velocity between the min and max values specified.
+
+To further test the robustness of the system you can tap x to shoot a larger object with a higher mass from the ground. 
+
+The simulations mostly relies on f=ma physics and uses conservation of energy, momentum and angular momentum to resolve collisions. I use the bounce reduction to prevent the collisions from being completely elastic.
+
+SimpleGLUT is the main file that we need to run.
+
+Other classes are set up simularly to a typical game engine:
+GameObject:
+	Rigidbody
+	Collider
+	Transform
+
+I have made my these along with my own quaternion, vector and other structs and utilities to aid me in programming this.
+
+The SimpleGlut Render function renders all the gameobjects using the gameobject->Render function
+The Update function checks for collisions between gameobjects and the boundaries and resolves via the gameobject functions.
+
+
+Project is currently setup for win32 debug mode. There may be dependancy issues if using any other mode.
+
+Using the SOIL library for loading textures and using OPEN FBX for importing model data. All assets being used are in the skybox folder. Currently only using a simple cube fbx file as the torso and legs/legJoints and scaling it accordingly.
+
+
+
